@@ -23,3 +23,47 @@ conda create --name pitter_env --file requirements.txt
 source activate pitter_env
 ```
 
+### Running pitter
+
+To run pitter, input the path to an image file or folder and run the test file.
+```
+python test.py input_image.jpg
+```
+
+### Input Options
+ 
+  **--plate-format** (-f): Plate format as colony count. Default is 1536
+  
+  **--remove-noise** (-n): Try removing noise from the image.
+  
+  **--auto-rotate**  (-r):  Fix image rotation.
+  
+  **--inverse**      (-i):  Work on inverse image.
+  
+  **--contrast**     (-c):  Adjust image contrast.
+  
+  **--rescale**      (-s):  Resize image before working on it. This speeds up the processing.  
+ 
+  **--save-grid**    (-g):  Save gridded image. Helps with debugging.
+  
+  **--skip-dat**     (-d):  Skip saving dat file.
+  
+  **--walk-folders** (-w):  Recurse into subfolders.
+                        
+  **--ignore-errors** (-e): Ignore processing errors, continue processing next image.
+  
+  **--resume-processing** (-R): Resume processing, skip images with existing dat files.
+                        
+  **--colony-compat**     (-C):   Enable colony imager compatibility mode (header).
+ 
+  **--template-plate**    (-t): Use this plate as the gridding reference for other plates.
+                        
+  **--detect-template**   (-l):  Automatically detect the last timepoint of each plate and use it as the template. If provided,
+                        the script will ignore (-t) template-plate flag.
+                       
+  **--liquid-assay**      (-L): This is a timecourse liquid assay. Must be used in combination with -l. Use last timepoint to
+                        detect the area of each colony and measure opacity instead of area.
+                        
+  **--local-illumination**  Calculate local illumination correction for liquid assays. Background intensity will be
+                        calculated for each colony. Produces better quantification resolution, but takes much longer
+                        to run. WiP WARNING there are still some problems with edge cases, ie: border colonies.
