@@ -30,6 +30,10 @@ To run pitter, input the path to an image file or folder and run the test file.
 python test.py input_image.jpg
 ```
 
+```
+python test.py input_folder/
+```
+
 ### Input Options
  
   **--plate-format** (-f): Plate format as colony count. Default is 1536
